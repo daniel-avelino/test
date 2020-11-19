@@ -6,49 +6,53 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="tb_products")
-public class Products implements Serializable{
+@Table(name="tb_users")
+public class Users implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
-	private String Product;
-	private Double Price;
 	
-	public Products() {
+	private String Name;
+	private String Email;
+	
+	public Users() {
+		
 	}
 	
-	public Products(Long id, String product,Double price) {
-		Id=id;
-		Product=product;
-		Price=price;
+	public Users(Long id, String name, String email) {
+		Id = id;
+		Name = name;
+		Email = email;
 	}
 
 	public Long getId() {
 		return Id;
 	}
 
-	public String getProduct() {
-		return Product;
+	public void setId(Long id) {
+		Id = id;
 	}
 
-	public void setProduct(String product) {
-		Product = product;
+	public String getName() {
+		return Name;
 	}
 
-	public Double getPrice() {
-		return Price;
+	public void setName(String name) {
+		Name = name;
 	}
 
-	public void setPrice(Double price) {
-		Price = price;
+	public String getEmail() {
+		return Email;
+	}
+
+	public void setEmail(String email) {
+		Email = email;
 	}
 
 	@Override
@@ -56,8 +60,6 @@ public class Products implements Serializable{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((Id == null) ? 0 : Id.hashCode());
-		result = prime * result + ((Price == null) ? 0 : Price.hashCode());
-		result = prime * result + ((Product == null) ? 0 : Product.hashCode());
 		return result;
 	}
 
@@ -69,25 +71,20 @@ public class Products implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Products other = (Products) obj;
+		Users other = (Users) obj;
 		if (Id == null) {
 			if (other.Id != null)
 				return false;
 		} else if (!Id.equals(other.Id))
 			return false;
-		if (Price == null) {
-			if (other.Price != null)
-				return false;
-		} else if (!Price.equals(other.Price))
-			return false;
-		if (Product == null) {
-			if (other.Product != null)
-				return false;
-		} else if (!Product.equals(other.Product))
-			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Users [Id=" + Id + ", Name=" + Name + ", Email=" + Email + "]";
 	}
 	
 	
-	
+
 }

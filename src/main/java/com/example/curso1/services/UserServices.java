@@ -5,17 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.curso1.entities.Products;
-import com.example.curso1.repositories.ProductRepository;
+import com.example.curso1.entities.Users;
+import com.example.curso1.repositories.UserRepository;
 
 @Service
-public class ProductsService {
-	
+public class UserServices {
+
 	@Autowired
-	private ProductRepository repository;
+	private UserRepository repository;
 	
-	public List<Products> findAll(){
+	public List<Users> findAll(){
 		return repository.findAll();
 	}
-
 }
